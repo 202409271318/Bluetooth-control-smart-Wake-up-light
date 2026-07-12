@@ -1,0 +1,89 @@
+<view class="container">
+
+<!-- 自定义导航栏 -->
+<view class="custom-navbar">
+  <view class="nav-back-btn" bindtap="goBack">
+    <text class="back-icon">←</text>
+  </view>
+  <view class="nav-title">自定义模式</view>
+  <view class="nav-placeholder"></view>
+</view>
+
+<!-- 模式切换 -->
+<view class="card">
+  <view class="tabs">
+    <view wx:for="{{[1,2,3]}}" wx:key="*this"
+          class="tab {{activeIdx === index ? 'active' : ''}}"
+          data-idx="{{index}}" bindtap="switchTab">
+      模式 {{item}}
+    </view>
+  </view>
+</view>
+
+<!-- 灯光预览模块 -->
+<view class="card light-preview-box">
+  <view class="preview-title">灯光预览</view>
+  <view class="light-preview-container">
+    <view 
+      class="light-preview" 
+      style="background: rgb({{modes[activeIdx].r}},{{modes[activeIdx].g}},{{modes[activeIdx].b}}); box-shadow: 0 0 {{modes[activeIdx].br * 0.6}}rpx rgb({{modes[activeIdx].r}},{{modes[activeIdx].g}},{{modes[activeIdx].b}}); opacity: {{modes[activeIdx].br / 255}};"
+    ></view>
+  </view>
+  <view class="preview-info">
+    <view>RGB({{modes[activeIdx].r}}, {{modes[activeIdx].g}}, {{modes[activeIdx].b}})</view>
+    <view>亮度：<text class="preview-brightness">{{brightnessPercent}}%</text></view>
+  </view>
+</view>
+
+<!-- 亮度滑块 -->
+<view class="card">
+  <view class="brightness-section">
+    <view class="section-label">亮度调节</view>
+    <view class="brightness-row">
+      <slider min="0" max="255" value="{{modes[activeIdx].br}}"
+              data-ch="br" bindchanging="changeChannel" bindchange="changeChannel"
+              activeColor="#fbbf24" backgroundColor="#444" />
+      <view class="brightness-value">{{brightnessPercent}}%</view>
+    </view>
+  </view>
+</view>
+
+<!-- 颜色预设 -->
+<view class="card">
+  <view class="title">颜色预设</view>
+  <view class="preset-row">
+    <view wx:for="{{colorPresets}}" wx:key="index"
+          class="preset-item {{selectedPresetIndex === index ? 'selected' : ''}}"
+          data-idx="{{index}}" bindtap="selectPreset">
+      <view class="preset-color" style="background: rgb({{item.r}},{{item.g}},{{item.b}});"></view>
+      <view class="preset-name">{{item.name}}</view>
+    </view>
+  </view>
+</view>
+
+<!-- RGB颜色滑块 -->
+<view class="card">
+  <view class="ch-row">
+    <view class="ch-lbl r-c">R: {{modes[activeIdx].r}}</view>
+    <slider min="0" max="255" value="{{modes[activeIdx].r}}"
+            data-ch="r" bindchanging="changeChannel" bindchange="changeChannel"
+            activeColor="#ff5252" backgroundColor="#444"/>
+  </view>
+  <view class="ch-row">
+    <view class="ch-lbl g-c">G: {{modes[activeIdx].g}}</view>
+    <slider min="0" max="255" value="{{modes[activeIdx].g}}"
+            data-ch="g" bindchanging="changeChannel" bindchange="changeChannel"
+            activeColor="#4ade80" backgroundColor="#444"/>
+  </view>
+  <view class="ch-row">
+    <view class="ch-lbl b-c">B: {{modes[activeIdx].b}}</view>
+    <slider min="0" max="255" value="{{modes[activeIdx].b}}"
+            data-ch="b" bindchanging="changeChannel" bindchange="changeChannel"
+            activeColor="#60a5fa" backgroundColor="#444"/>
+  </view>
+</view>
+
+<button class="btn-secondary" bindtap="saveCurrent">保存当前模式</button>
+<button class="btn-primary" bindtap="saveAll">保存全部三个模式</button>
+
+</view>
