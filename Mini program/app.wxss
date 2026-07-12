@@ -1,0 +1,35 @@
+page {
+  background: #1a1a2e;
+  color: #fff;
+  font-family: PingFang SC, Helvetica, sans-serif;
+  font-size: 28rpx;
+}
+.container { padding: 30rpx; }
+.card {
+  background: #16213e;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.3);
+}
+.title { font-size: 36rpx; font-weight: bold; margin-bottom: 20rpx; }
+.subtitle { font-size: 26rpx; color: #8b8eaf; margin-bottom: 16rpx; }
+.row { display: flex; justify-content: space-between; align-items: center; padding: 16rpx 0; }
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border-radius: 50rpx;
+  padding: 22rpx 0;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+}
+.btn-secondary {
+  background: #2c3e50;
+  color: #fff;
+  border-radius: 50rpx;
+  padding: 22rpx 0;
+  font-size: 30rpx;
+}
+.btn-disabled { opacity: 0.5; }
+.tag-on { color: #4ade80; font-weight: bold; }
+.tag-off { color: #f87171; font-weight: bold; }

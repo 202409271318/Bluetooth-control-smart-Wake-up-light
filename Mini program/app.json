@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/control/control",
+    "pages/plan/plan",
+    "pages/custom/custom",
+    "utils/ble"
+  ],
+  "window": {
+    "navigationBarTitleText": "智能唤醒灯",
+    "navigationBarBackgroundColor": "#1a1a2e",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#1a1a2e"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
