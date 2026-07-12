@@ -1,0 +1,78 @@
+/* 自定义导航栏 */
+.custom-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60rpx 30rpx 20rpx;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.nav-back-btn {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-icon {
+  font-size: 40rpx;
+  color: #fff;
+}
+
+.nav-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #fff;
+}
+
+.nav-placeholder {
+  width: 60rpx;
+}
+
+/* 用户信息卡片 */
+.user-card {
+  padding: 20rpx 30rpx;
+}
+
+.user-info-row {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.user-avatar-small {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #2c3e50;
+  border: 3rpx solid #667eea;
+}
+
+.user-name {
+  font-size: 32rpx;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* 状态卡片 */
+.status-card { text-align: center; }
+.time-big { font-size: 80rpx; font-weight: bold; margin: 20rpx 0; letter-spacing: 4rpx; }
+.title-sm { font-size: 32rpx; font-weight: 600; }
+.value { color: #c4b5fd; font-weight: 600; }
+.bright-row { display: flex; justify-content: space-between; margin-top: 24rpx; }
+.bright-btn {
+  flex: 1; margin: 0 10rpx; padding: 22rpx 0;
+  text-align: center; border-radius: 50rpx;
+  background: #0f3460; font-size: 28rpx;
+}
+.bright-btn.active { background: linear-gradient(135deg, #667eea, #764ba2); font-weight: bold; }
+.mt { margin-top: 18rpx; }
+
+.local-date {
+  font-size: 28rpx; color: #8b8eaf; margin-bottom: 8rpx;
+}
+.device-time {
+  font-size: 24rpx; color: #8b8eaf; margin-top: 16rpx;
+}
+.dt-val { color: #c4b5fd; font-weight: bold; margin-left: 6rpx; }

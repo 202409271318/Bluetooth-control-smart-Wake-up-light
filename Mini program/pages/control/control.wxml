@@ -1,0 +1,80 @@
+<view class="container">
+
+<!-- 自定义导航栏 -->
+<view class="custom-navbar">
+  <view class="nav-back-btn" bindtap="goBack">
+    <text class="back-icon">←</text>
+  </view>
+  <view class="nav-title">主控制台</view>
+  <view class="nav-placeholder"></view>
+</view>
+
+<!-- 用户信息卡片 -->
+<view class="card user-card">
+  <view class="user-info-row">
+    <image class="user-avatar-small" src="{{userInfo.avatarUrl}}" mode="aspectFill" binderror="onSettingAvatarError" />
+    <view class="user-name">{{userInfo.nickName}}</view>
+  </view>
+</view>
+
+<!-- 时间卡片 -->
+<view class="card status-card">
+  <view class="local-date">{{localDate}}</view>
+  <view class="time-big">{{localTime}}</view>
+  <view class="device-time">
+    设备时间: <text class="dt-val">{{deviceTime}}</text>
+  </view>
+</view>
+
+<!-- 传感器卡片 -->
+<view class="card">
+  <view class="row">
+    <view>当前模式</view>
+    <view class="value">{{status.mode || 'Default'}}</view>
+  </view>
+  <view class="row">
+    <view>温度</view>
+    <view class="value">{{status.temp || 0}} ℃</view>
+  </view>
+  <view class="row">
+    <view>湿度</view>
+    <view class="value">{{status.hum || 0}} %</view>
+  </view>
+  <view class="row">
+    <view>环境光</view>
+    <view class="value">{{status.lightRaw !== undefined && status.lightRaw !== null ? (4095 - status.lightRaw) : '--'}}</view>
+    
+  </view>
+</view>
+
+<!-- 自动亮度 -->
+<view class="card">
+  <view class="row">
+    <view class="title-sm">自动亮度</view>
+    <switch checked="{{status.auto}}" bindchange="toggleAuto" color="#7c3aed"/>
+  </view>
+  <view class="subtitle">开启后将根据环境光自动调整亮度</view>
+</view>
+
+<!-- 亮度档位 -->
+<view class="card">
+  <view class="title-sm">亮度档位</view>
+  <view class="bright-row">
+    <view wx:for="{{brightLevels}}" wx:key="*this"
+          class="bright-btn {{status.brightLevel === index ? 'active' : ''}}"
+          data-level="{{index}}" bindtap="tapBright">
+      {{item}}
+    </view>
+  </view>
+</view>
+
+<!-- 快捷操作 -->
+<view class="card">
+  <view class="title-sm">快捷操作</view>
+  <button class="btn-secondary mt" bindtap="syncTime">⏱ 同步当前时间到设备</button>
+  <button class="btn-secondary mt" bindtap="refresh">🔄 刷新状态</button>
+  <button class="btn-secondary mt" bindtap="goPlan">🌙 睡眠 / 起床计划</button>
+  <button class="btn-secondary mt" bindtap="goCustom">🎨 自定义模式 1/2/3</button>
+  <button class="btn-primary mt" bindtap="disconnect">断开连接</button>
+</view>
+</view>
