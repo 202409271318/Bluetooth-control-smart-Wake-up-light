@@ -1,0 +1,55 @@
+<view class="container">
+  <!-- 用户信息卡片 -->
+  <view class="card user-card">
+    <view class="title">个人信息</view>
+    <view class="subtitle login-status">{{loginStatusText}}</view>
+    <view class="user-center-content">
+      <!-- 头像区域 -->
+      <view class="avatar-wrap">
+        <image class="avatar-center" src="{{userInfo.avatarUrl}}" mode="aspectFill" binderror="onAvatarError" bindtap="onAvatarAreaTap" />
+        <button wx:if="{{isLoggedIn}}" class="avatar-wechat-btn" open-type="chooseAvatar" bindchooseavatar="onChooseWechatAvatar"></button>
+      </view>
+      <!-- 昵称区域 -->
+      <view wx:if="{{!isEditingNickname}}" class="nickname-center" bindtap="editNickname">{{userInfo.nickName}}</view>
+      <view wx:else class="nickname-edit">
+        <input 
+          class="nickname-input" 
+          value="{{editNicknameValue}}" 
+          bindinput="onNicknameInput"
+          placeholder="请输入昵称"
+          confirm-type="done"
+          bindconfirm="saveNickname"
+        />
+        <view class="nickname-actions">
+          <text class="action-btn cancel" bindtap="cancelEditNickname">取消</text>
+          <text class="action-btn confirm" bindtap="saveNickname">保存</text>
+        </view>
+      </view>
+    </view>
+    <!-- 登录/退出按钮 -->
+    <button wx:if="{{!isLoggedIn}}" class="btn-primary" bindtap="handleAuthorize">一键登录</button>
+    <button wx:if="{{isLoggedIn}}" class="btn-secondary" bindtap="handleLogout">退出登录</button>
+    <view wx:if="{{networkTip}}" class="network-tip">{{networkTip}}</view>
+  </view>
+
+  <!-- 设备连接卡片 -->
+  <view class="card device-card">
+    <view class="title">🌙 智能唤醒灯</view>
+    <view class="subtitle">设备名：WakeLight</view>
+    <button class="btn-primary" bindtap="startScan" wx:if="{{!scanning}}">开始扫描</button>
+    <button class="btn-secondary" bindtap="stopScan" wx:else>停止扫描（扫描中…）</button>
+  </view>
+
+  <!-- 已发现设备 -->
+  <view class="card">
+    <view class="title">已发现设备</view>
+    <view wx:if="{{devices.length === 0}}" class="subtitle">
+      暂无设备，请点击"开始扫描"
+    </view>
+    <view wx:for="{{devices}}" wx:key="deviceId"
+          class="device-item" bindtap="tapDevice" data-dev="{{item}}">
+      <view class="dev-name">{{item.name}}</view>
+      <view class="dev-info">RSSI: {{item.rssi}} dBm</view>
+    </view>
+  </view>
+</view>

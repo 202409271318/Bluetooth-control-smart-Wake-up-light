@@ -1,0 +1,129 @@
+/* 用户信息卡片 */
+.user-card {
+  text-align: center;
+}
+
+.login-status {
+  font-size: 24rpx;
+  color: #8b8eaf;
+  margin-bottom: 24rpx;
+}
+
+.user-center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+
+/* 头像区域 */
+.avatar-wrap {
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 20rpx;
+}
+
+.avatar-center {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  background: #2c3e50;
+  border: 4rpx solid #667eea;
+  display: block;
+}
+
+/* 覆盖在头像上的透明按钮，触发微信 chooseAvatar */
+.avatar-wechat-btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200rpx;
+  height: 200rpx;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  opacity: 0.01;
+  box-sizing: border-box;
+}
+
+.avatar-wechat-btn::after {
+  border: none;
+}
+
+/* 昵称区域 */
+.nickname-center {
+  font-size: 36rpx;
+  color: #fff;
+  font-weight: 500;
+  padding: 10rpx 30rpx;
+  border-bottom: 2rpx solid transparent;
+}
+
+.nickname-center:active {
+  border-bottom-color: #667eea;
+}
+
+.nickname-edit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.nickname-input {
+  width: 300rpx;
+  height: 72rpx;
+  font-size: 32rpx;
+  color: #fff;
+  text-align: center;
+  border-bottom: 2rpx solid #667eea;
+  background: transparent;
+}
+
+.nickname-actions {
+  display: flex;
+  gap: 40rpx;
+}
+
+.action-btn {
+  font-size: 28rpx;
+  padding: 10rpx 30rpx;
+}
+
+.action-btn.cancel {
+  color: #8b8eaf;
+}
+
+.action-btn.confirm {
+  color: #4ade80;
+}
+
+/* 网络提示 */
+.network-tip {
+  font-size: 24rpx;
+  color: #f87171;
+  margin-top: 16rpx;
+}
+
+/* 设备列表 */
+.device-item {
+  background: #0f3460;
+  padding: 24rpx;
+  margin-top: 16rpx;
+  border-radius: 16rpx;
+}
+
+.dev-name { 
+  font-size: 32rpx; 
+  font-weight: 600; 
+  color: #fff;
+}
+
+.dev-info { 
+  font-size: 24rpx; 
+  color: #aab; 
+  margin-top: 6rpx; 
+}
