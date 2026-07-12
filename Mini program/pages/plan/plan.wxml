@@ -1,0 +1,73 @@
+<view class="container">
+
+<!-- 自定义导航栏 -->
+<view class="custom-navbar">
+  <view class="nav-back-btn" bindtap="goBack">
+    <text class="back-icon">←</text>
+  </view>
+  <view class="nav-title">睡眠 / 起床计划</view>
+  <view class="nav-placeholder"></view>
+</view>
+
+<view class="card">
+  <view class="title">🌙 睡眠计划</view>
+  <view class="subtitle">睡前灯光自动渐暗，帮助入睡</view>
+
+  <view class="time-row">
+    <view class="lbl">开灯</view>
+    <picker mode="time" value="{{sleepLight}}"
+            data-key="sleepLight" bindchange="bindTime">
+      <view class="time-val">{{sleepLight}}</view>
+    </picker>
+  </view>
+  <view class="time-row">
+    <view class="lbl">开始变暗</view>
+    <picker mode="time" value="{{sleepTurn}}"
+            data-key="sleepTurn" bindchange="bindTurnTime"
+            disabled="{{sleepSliderDisabled}}">
+      <view class="time-val {{sleepSliderDisabled ? 'disabled' : ''}}">{{sleepTurn}}</view>
+    </picker>
+  </view>
+  <view class="time-row">
+    <view class="lbl">熄灭</view>
+    <picker mode="time" value="{{sleepDark}}"
+            data-key="sleepDark" bindchange="bindTime">
+      <view class="time-val">{{sleepDark}}</view>
+    </picker>
+  </view>
+
+  <button class="btn-secondary" bindtap="saveSleep">保存睡眠计划</button>
+</view>
+
+<view class="card">
+  <view class="title">🌅 起床计划</view>
+  <view class="subtitle">日出模拟唤醒，温柔唤醒一天</view>
+
+  <view class="time-row">
+    <view class="lbl">开始变亮</view>
+    <picker mode="time" value="{{wakeStart}}"
+            data-key="wakeStart" bindchange="bindTime">
+      <view class="time-val">{{wakeStart}}</view>
+    </picker>
+  </view>
+  <view class="time-row">
+    <view class="lbl">达到最亮</view>
+    <picker mode="time" value="{{wakeMax}}"
+            data-key="wakeMax" bindchange="bindTurnTime"
+            disabled="{{wakeSliderDisabled}}">
+      <view class="time-val {{wakeSliderDisabled ? 'disabled' : ''}}">{{wakeMax}}</view>
+    </picker>
+  </view>
+  <view class="time-row">
+    <view class="lbl">关闭</view>
+    <picker mode="time" value="{{wakeOff}}"
+            data-key="wakeOff" bindchange="bindTime">
+      <view class="time-val">{{wakeOff}}</view>
+    </picker>
+  </view>
+
+  <button class="btn-secondary" bindtap="saveWake">保存起床计划</button>
+</view>
+
+<button class="btn-primary" bindtap="saveAll">一键保存全部</button>
+</view>

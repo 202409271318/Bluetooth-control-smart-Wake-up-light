@@ -1,0 +1,46 @@
+/* 自定义导航栏 */
+.custom-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60rpx 30rpx 20rpx;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.nav-back-btn {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-icon {
+  font-size: 40rpx;
+  color: #fff;
+}
+
+.nav-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #fff;
+}
+
+.nav-placeholder {
+  width: 60rpx;
+}
+
+/* 时间选择 */
+.time-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 24rpx 0; border-bottom: 1rpx solid #2a2f4a;
+}
+.lbl { font-size: 28rpx; color: #d1d5db; }
+.time-val {
+  font-size: 36rpx; font-weight: bold; color: #c4b5fd;
+  background: #0f3460; padding: 12rpx 24rpx; border-radius: 12rpx;
+}
+.time-val.disabled {
+  color: #6b7280;
+  background: #1f2937;
+}
